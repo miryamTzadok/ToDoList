@@ -1,6 +1,5 @@
 using TodoApi;
 
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ToDoListContext>();
 builder.Services.AddControllers();
@@ -15,11 +14,11 @@ builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();
-// if(app.Environment.IsDevelopment()){
+if(app.Environment.IsDevelopment()){
     app.UseSwagger();
 app.UseSwaggerUI();
 
-// }
+}
 app.UseCors("AllowAll");
 //קריאות שרת
 app.MapGet("/",async() =>{
@@ -64,10 +63,5 @@ app.MapDelete("/de/{id}", async(ToDoListContext db,int id) =>
             }
         }
         db.SaveChanges();});
-
-
-
-app.MapGet("/", () => "AuthServer API is running!");|
-
 
 app.Run();
