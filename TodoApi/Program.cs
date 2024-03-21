@@ -21,9 +21,9 @@ app.UseSwaggerUI();
 // }
 app.UseCors("AllowAll");
 //קריאות שרת
-app.MapGet("/",async() =>{
+// app.MapGet("/",async() =>{
  
-});
+// });
 //שליפה
 app.MapGet("/allitems",async(ToDoListContext db) =>{
  List<Item> list = new List<Item>();
